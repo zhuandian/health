@@ -91,17 +91,22 @@ public class MainActivity extends AppCompatActivity {
                 List<ScheduleEntity> allData = DBManager.getInstance().getDataByTime(dateNowStr, hour + "", minute + "");
                 if (allData.size() > 0) {
                     ScheduleEntity scheduleEntity = allData.get(0);
-                    new AlertDialog.Builder(MainActivity.this)
-                            .setTitle(scheduleEntity.getTitle())
-                            .setCancelable(false)
-                            .setMessage(scheduleEntity.getContent())
-                            .setPositiveButton("我知道啦", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            })
-                            .show();
+                   runOnUiThread(new Runnable() {
+                       @Override
+                       public void run() {
+                           new AlertDialog.Builder(MainActivity.this)
+                                   .setTitle(scheduleEntity.getTitle())
+                                   .setCancelable(false)
+                                   .setMessage(scheduleEntity.getContent())
+                                   .setPositiveButton("我知道啦", new DialogInterface.OnClickListener() {
+                                       @Override
+                                       public void onClick(DialogInterface dialog, int which) {
+                                           dialog.dismiss();
+                                       }
+                                   })
+                                   .show();
+                       }
+                   });
                 }
 
 
@@ -123,9 +128,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, NewScheduleActivity.class));
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        timer.cancel();
-    }
+
 }
