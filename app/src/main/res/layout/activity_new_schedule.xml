@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".activity.NewScheduleActivity">
+
+        <EditText
+            android:id="@+id/et_title"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/shape_edittext_bg"
+            android:hint="请输入提醒标题"
+            android:paddingLeft="10dp"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/et_content"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/shape_edittext_bg"
+            android:hint="请输入提醒内容"
+            android:paddingLeft="10dp"
+            android:textSize="14sp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+            <RadioButton
+                android:id="@+id/rb_type1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="作息时间提醒" />
+
+            <RadioButton
+                android:id="@+id/rb_type2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用餐时间禁忌提醒" />
+
+            <RadioButton
+                android:id="@+id/rb_type3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="服药时间剂量提醒" />
+
+            <RadioButton
+                android:id="@+id/rb_type4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="运动康复提醒" />
+        </RadioGroup>
+
+        <CalendarView
+            android:id="@+id/calendarview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TimePicker
+            android:id="@+id/timepicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:timePickerMode="spinner" />
+
+        <TextView
+            android:id="@+id/tv_commit"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="30dp"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="提 交"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
